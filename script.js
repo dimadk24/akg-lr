@@ -96,8 +96,8 @@ class Canvas {
             cornerRadius: 10,
             draggable: true,
         });
-        const x = this.stage.width() / 2;
-        const y = this.stage.height() / 2;
+        // const x = this.stage.width() / 2;
+        // const y = this.stage.height() / 2;
         /*this.shapes.rectangle.main = new Konva.Line({
             x: this.stage.width() / 2,
             y: this.stage.height() / 2,
@@ -258,7 +258,6 @@ class Canvas {
 
         this.angle = 0;
 
-        this.movingComplete = false;
         this.animations = {};
         this.animations.rotation = new Konva.Animation(() => {
             if (this.angle >= 360) {
@@ -281,9 +280,6 @@ class Canvas {
 
         const mainRectangleTween = TweenLite.to(this.shapes.rectangle.main, 3, {
             paused: true,
-            onComplete: () => {
-                this.movingComplete = true;
-            }
         });
         const intersectionRectangleTween = TweenLite.to(this.shapes.rectangle.intersection, 3, {
             paused: true
