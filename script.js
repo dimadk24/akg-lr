@@ -89,7 +89,7 @@ class Canvas {
             x: this.stage.width() / 2 - 450,
             y: this.stage.height() / 2 - 300,
             width: 900,
-            height: 600,
+            height: 550,
             stroke: 'black',
             fill: 'white',
             strokeWidth: 2,
@@ -99,10 +99,8 @@ class Canvas {
         this.shapes.rectangle.borderLine = new Konva.Line({
             x: this.stage.width() / 2 - 450,
             y: this.stage.height() / 2 - 300,
-            width: 900,
-            height: 600,
             stroke: 'black',
-            points: [0, 0, 900, 0, 900, 600, 0, 600, 0, 0],
+            points: [0, 0, 900, 0, 900, 550, 0, 550, 0, 0],
             strokeWidth: 2,
             closed: false,
         });
