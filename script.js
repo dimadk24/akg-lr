@@ -90,11 +90,9 @@ class Canvas {
             y: this.stage.height() / 2 - 300,
             width: 900,
             height: 600,
-            stroke: 'white',
+            stroke: 'black',
             fill: 'white',
             strokeWidth: 2,
-            shadowBlur: 10,
-            cornerRadius: 10,
             draggable: true,
         });
         // const x = this.stage.width() / 2;
@@ -221,7 +219,7 @@ class Canvas {
             this.stage.batchDraw();
             this.clip();
         });
-        this.layers.rectangle.border.add(this.borderTransform);
+        // this.layers.rectangle.border.add(this.borderTransform);
         this.borderTransform.nodes([this.shapes.rectangle.border]);
 
         this.stage.add(this.layers.rectangle.border);
