@@ -7,6 +7,7 @@ class Canvas {
         this.combineElements();
         this.draw();
         this.initChangeOrderFn();
+        this.isLeftOnTop = false;
     }
 
     getViewport() {
@@ -193,7 +194,7 @@ class Canvas {
         });
     }
 
-    combineElements(isRectOnTop = false) {
+    combineElements() {
         const layerSettings = {
             x: 0,
             y: 0,
@@ -238,7 +239,7 @@ class Canvas {
 
         this.stage.add(this.layers.rectangle.borderBox);
 
-        if (isRectOnTop) {
+        if (this.isLeftOnTop) {
             this.stage.add(this.layers.circle.main);
             this.stage.add(this.layers.rectangle.main);
             this.stage.add(this.layers.rectangle.intersection);
@@ -349,13 +350,10 @@ class Canvas {
     }
 
     initChangeOrderFn() {
-        document.querySelector('#move_rect_up').addEventListener('click', () => {
-            this.combineElements(true);
+        document.querySelector('#change_order').addEventListener('click', () => {
+            this.isLeftOnTop = !this.isLeftOnTop;
             this.draw();
-        })
-        document.querySelector('#move_circle_up').addEventListener('click', () => {
-            this.combineElements(false);
-            this.draw()
+            this.combineElements();
         })
     }
 }
