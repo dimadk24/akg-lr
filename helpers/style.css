@@ -1,0 +1,70 @@
+/* --- Common --- */
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    background: #e8e8e8;
+}
+
+body {
+    margin: 0;
+}
+
+
+/* --- Viewport --- */
+
+.viewport {
+    height: 100%;
+}
+
+.buttons {
+   border: 1px solid #CC0066;
+}
+
+.btn-group {
+    display: flex;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+/*.btn-group button {*/
+/*    background-color: black; !* Green background *!*/
+/*    color: white; !* White text *!*/
+/*    padding: 10px 24px; !* Some padding *!*/
+/*	border: 2px solid black;*/
+/*    cursor: pointer; !* Pointer/hand icon *!*/
+/*    float: left; !* Float the buttons side by side *!*/
+/*}*/
+
+/*.btn-group button:not(:last-child) {*/
+/*    border-right: none; !* Prevent double borders *!*/
+/*}*/
+
+/* Clear floats (clearfix hack) */
+/*.btn-group:after {*/
+/*    content: "";*/
+/*    clear: both;*/
+/*    display: table;*/
+/*}*/
+
+/* Add a background color on hover */
+/*.btn-group button:hover {*/
+/*    background-color: white;*/
+/*	color: black; */
+/*}*/
+
+button {
+    font-size: xx-large;
+    margin-right: 10px;
+}
+
+.konvajs-content {
+    margin-top: 10px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
