@@ -61,25 +61,26 @@ class Canvas {
 
     initRectangleShape() {
         this.shapes.rectangle = {};
-        this.shapes.rectangle.main = new Konva.RegularPolygon({
-            x: this.stage.width() / 2 -70,
-            y: this.stage.height() / 2 +30,
-            sides: 3,
+        this.shapes.rectangle.main = new Konva.Line({
+            x: this.stage.width() / 2 - 70,
+            y: this.stage.height() / 2 + 30,
+            points: [0, 0, 0, 150, -300, 150, -150, 0],
+            sides: 4,
             width: 200,
             height: 200,
             fill: 'white',
             stroke: 'black',
             strokeWidth: 3,
-            draggable: true
+            draggable: true,
+            closed: true,
         });
-        this.shapes.rectangle.intersection = new Konva.RegularPolygon({
-            x: this.stage.width() / 2 -70,
-            y: this.stage.height() / 2 +30,
-            sides: 3,
-            width: 200,
-            height: 200,
+        this.shapes.rectangle.intersection = new Konva.Line({
+            x: this.stage.width() / 2 - 70,
+            y: this.stage.height() / 2 + 30,
+            points: [0, 0, 0, 150, -300, 150, -150, 0],
             stroke: 'black',
             strokeWidth: 2,
+            closed: true,
             dash: [3],
             draggable: true
         });
@@ -210,7 +211,6 @@ class Canvas {
         this.layers.rectangle.border.add(this.shapes.rectangle.border);
 
 
-
         this.borderTransform = new Konva.Transformer({
             rotateEnabled: false,
             boundBoxFunc: (oldBoundBox, newBoundBox) => {
@@ -322,6 +322,7 @@ class Canvas {
         });
     }
 }
+
 let canvas;
 const handleDOMContentLoaded = () => {
     canvas = new Canvas();
