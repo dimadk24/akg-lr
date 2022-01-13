@@ -297,7 +297,7 @@ class Canvas {
             this.shapes.circle.intersection.rotation(-this.angle);
 
 
-            this.angle += 0.4;
+            this.angle += 0.3;
         }, this.stage);
     }
 
