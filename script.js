@@ -42,7 +42,7 @@ class Canvas {
             fill: 'white',
             stroke: 'black',
             strokeWidth: 3,
-            rotation: 55,
+            rotation: 90,
             draggable: true
         });
         this.shapes.circle.intersection = new Konva.Ellipse({
@@ -52,7 +52,7 @@ class Canvas {
             height: 150,
             stroke: 'black',
             strokeWidth: 2,
-            rotation: 55,
+            rotation: 90,
             dash: [3],
             draggable: true
         });
