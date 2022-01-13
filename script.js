@@ -6,6 +6,7 @@ class Canvas {
         this.initShapes();
         this.combineElements();
         this.draw();
+        this.initChangeOrderFn();
     }
 
     getViewport() {
@@ -192,7 +193,7 @@ class Canvas {
         });
     }
 
-    combineElements() {
+    combineElements(isRectOnTop = false) {
         const layerSettings = {
             x: 0,
             y: 0,
@@ -236,11 +237,19 @@ class Canvas {
         this.borderTransform.nodes([this.shapes.rectangle.borderBox]);
 
         this.stage.add(this.layers.rectangle.borderBox);
-        this.stage.add(this.layers.circle.intersection);
 
-        this.stage.add(this.layers.rectangle.main);
-        this.stage.add(this.layers.circle.main);
-        this.stage.add(this.layers.rectangle.intersection);
+        if (isRectOnTop) {
+            this.stage.add(this.layers.circle.main);
+            this.stage.add(this.layers.rectangle.main);
+            this.stage.add(this.layers.rectangle.intersection);
+            this.stage.add(this.layers.circle.intersection);
+        } else {
+            this.stage.add(this.layers.circle.intersection);
+            this.stage.add(this.layers.rectangle.main);
+            this.stage.add(this.layers.circle.main);
+            this.stage.add(this.layers.rectangle.intersection);
+        }
+
         this.stage.add(this.layers.rectangle.borderLine);
 
         this.shapes.circle.main.on('dragmove', () => {
@@ -337,6 +346,17 @@ class Canvas {
                 intersectionCircleTween.play();
             }
         });
+    }
+
+    initChangeOrderFn() {
+        document.querySelector('#move_rect_up').addEventListener('click', () => {
+            this.combineElements(true);
+            this.draw();
+        })
+        document.querySelector('#move_circle_up').addEventListener('click', () => {
+            this.combineElements(false);
+            this.draw()
+        })
     }
 }
 
