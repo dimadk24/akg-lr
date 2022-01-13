@@ -211,6 +211,8 @@ class Canvas {
 
         this.borderTransform = new Konva.Transformer({
             rotateEnabled: false,
+            resizeEnabled: false,
+            borderEnabled: false,
             boundBoxFunc: (oldBoundBox, newBoundBox) => {
                 return newBoundBox;
             },
@@ -219,7 +221,7 @@ class Canvas {
             this.stage.batchDraw();
             this.clip();
         });
-        // this.layers.rectangle.border.add(this.borderTransform);
+        this.layers.rectangle.border.add(this.borderTransform);
         this.borderTransform.nodes([this.shapes.rectangle.border]);
 
         this.stage.add(this.layers.rectangle.border);
