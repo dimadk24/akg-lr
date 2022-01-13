@@ -9,6 +9,7 @@
 html,
 body {
     height: 100%;
+    background: #e8e8e8;
 }
 
 body {
@@ -56,6 +57,10 @@ body {
 /*    background-color: white;*/
 /*	color: black; */
 /*}*/
+
+button {
+    font-size: xx-large;
+}
 
 .konvajs-content {
     margin-top: 10px;
