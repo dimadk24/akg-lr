@@ -85,7 +85,7 @@ class Canvas {
             draggable: true
         });
 
-        this.shapes.rectangle.border = new Konva.Rect({
+        this.shapes.rectangle.borderBox = new Konva.Rect({
             x: this.stage.width() / 2 - 450,
             y: this.stage.height() / 2 - 300,
             width: 900,
@@ -94,6 +94,17 @@ class Canvas {
             fill: 'white',
             strokeWidth: 2,
             draggable: true,
+        });
+
+        this.shapes.rectangle.borderLine = new Konva.Line({
+            x: this.stage.width() / 2 - 450,
+            y: this.stage.height() / 2 - 300,
+            width: 900,
+            height: 600,
+            stroke: 'black',
+            points: [0, 0, 900, 0, 900, 600, 0, 600, 0, 0],
+            strokeWidth: 2,
+            closed: false,
         });
         // const x = this.stage.width() / 2;
         // const y = this.stage.height() / 2;
@@ -202,11 +213,13 @@ class Canvas {
 
         this.layers.rectangle.main = new Konva.Layer(layerSettings);
         this.layers.rectangle.intersection = new Konva.Layer(layerSettings);
-        this.layers.rectangle.border = new Konva.Layer(layerSettings);
+        this.layers.rectangle.borderBox = new Konva.Layer(layerSettings);
+        this.layers.rectangle.borderLine = new Konva.Layer(layerSettings);
 
         this.layers.rectangle.main.add(this.shapes.rectangle.main);
         this.layers.rectangle.intersection.add(this.shapes.rectangle.intersection);
-        this.layers.rectangle.border.add(this.shapes.rectangle.border);
+        this.layers.rectangle.borderBox.add(this.shapes.rectangle.borderBox);
+        this.layers.rectangle.borderLine.add(this.shapes.rectangle.borderLine);
 
 
         this.borderTransform = new Konva.Transformer({
@@ -221,15 +234,16 @@ class Canvas {
             this.stage.batchDraw();
             this.clip();
         });
-        this.layers.rectangle.border.add(this.borderTransform);
-        this.borderTransform.nodes([this.shapes.rectangle.border]);
+        this.layers.rectangle.borderBox.add(this.borderTransform);
+        this.borderTransform.nodes([this.shapes.rectangle.borderBox]);
 
-        this.stage.add(this.layers.rectangle.border);
+        this.stage.add(this.layers.rectangle.borderBox);
         this.stage.add(this.layers.circle.intersection);
 
         this.stage.add(this.layers.rectangle.main);
         this.stage.add(this.layers.circle.main);
         this.stage.add(this.layers.rectangle.intersection);
+        this.stage.add(this.layers.rectangle.borderLine);
 
         this.shapes.circle.main.on('dragmove', () => {
             this.shapes.circle.intersection.x(this.shapes.circle.main.x());
@@ -249,6 +263,11 @@ class Canvas {
         this.shapes.rectangle.intersection.on('dragmove', () => {
             this.shapes.rectangle.main.x(this.shapes.rectangle.intersection.x());
             this.shapes.rectangle.main.y(this.shapes.rectangle.intersection.y());
+        });
+
+        this.shapes.rectangle.borderBox.on('dragmove', () => {
+            this.shapes.rectangle.borderLine.x(this.shapes.rectangle.borderBox.x());
+            this.shapes.rectangle.borderLine.y(this.shapes.rectangle.borderBox.y());
         });
 
         this.stage.on('dragmove', () => {
