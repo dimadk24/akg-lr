@@ -54,7 +54,7 @@ class Canvas {
             stroke: 'black',
             strokeWidth: 2,
             rotation: 90,
-            dash: [3],
+            dash: [10],
             draggable: true
         });
 
@@ -82,7 +82,7 @@ class Canvas {
             stroke: 'black',
             strokeWidth: 2,
             closed: true,
-            dash: [3],
+            dash: [10],
             draggable: true
         });
 
