@@ -29,17 +29,18 @@ body {
 
 .btn-group {
     display: flex;
+    flex-direction: row-reverse;
     margin-top: 10px;
     margin-left: 10px;
 }
-/*.btn-group button {*/
-/*    background-color: black; !* Green background *!*/
-/*    color: white; !* White text *!*/
-/*    padding: 10px 24px; !* Some padding *!*/
-/*	border: 2px solid black;*/
-/*    cursor: pointer; !* Pointer/hand icon *!*/
-/*    float: left; !* Float the buttons side by side *!*/
-/*}*/
+.btn-group button {
+    background-color: white;
+    color: black;
+    padding: 10px 24px; /* Some padding */
+	border: 2px solid black;
+    cursor: pointer; /* Pointer/hand icon */
+    /*float: left; !* Float the buttons side by side *!*/
+}
 
 /*.btn-group button:not(:last-child) {*/
 /*    border-right: none; !* Prevent double borders *!*/

@@ -43,7 +43,7 @@ class Canvas {
             height: 100,
             fill: 'white',
             stroke: 'black',
-            strokeWidth: 3,
+            strokeWidth: 2,
             rotation: 90,
             draggable: true
         });
@@ -53,9 +53,9 @@ class Canvas {
             width: 100,
             height: 100,
             stroke: 'black',
-            strokeWidth: 2,
+            strokeWidth: 1,
             rotation: 90,
-            dash: [10],
+            dash: [3],
             draggable: true
         });
 
@@ -71,7 +71,7 @@ class Canvas {
             height: 100,
             fill: 'white',
             stroke: 'black',
-            strokeWidth: 3,
+            strokeWidth: 2,
             draggable: true,
             closed: true,
         });
@@ -81,9 +81,9 @@ class Canvas {
             width: 100,
             height: 100,
             stroke: 'black',
-            strokeWidth: 2,
+            strokeWidth: 1,
             closed: true,
-            dash: [10],
+            dash: [3],
             draggable: true
         });
 
@@ -94,7 +94,7 @@ class Canvas {
             height: 550,
             stroke: 'black',
             fill: 'white',
-            strokeWidth: 2,
+            strokeWidth: 1,
             draggable: true,
         });
 
@@ -103,7 +103,7 @@ class Canvas {
             y: this.stage.height() / 2 - 300,
             stroke: 'black',
             points: [0, 0, 900, 0, 900, 550, 0, 550, 0, 0],
-            strokeWidth: 2,
+            strokeWidth: 1,
             closed: false,
         });
         // const x = this.stage.width() / 2;
