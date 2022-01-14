@@ -36,7 +36,7 @@ class Canvas {
 
     initCircleShape() {
         this.shapes.circle = {};
-        this.shapes.circle.main = new Konva.Ellipse({
+        this.shapes.circle.main = new Konva.Rect({
             x: this.stage.width() / 2,
             y: this.stage.height() / 2,
             width: 60,
@@ -47,7 +47,7 @@ class Canvas {
             rotation: 90,
             draggable: true
         });
-        this.shapes.circle.intersection = new Konva.Ellipse({
+        this.shapes.circle.intersection = new Konva.Rect({
             x: this.stage.width() / 2,
             y: this.stage.height() / 2,
             width: 60,
@@ -63,10 +63,10 @@ class Canvas {
 
     initRectangleShape() {
         this.shapes.rectangle = {};
-        this.shapes.rectangle.main = new Konva.Line({
+        this.shapes.rectangle.main = new Konva.Rect({
             x: this.stage.width() / 2 - 70,
             y: this.stage.height() / 2 + 30,
-            points: [0, 0, 0, 150, -300, 150, -150, 0],
+            // points: [0, 0, 0, 150, -300, 150, -150, 0],
             sides: 4,
             width: 200,
             height: 200,
@@ -76,10 +76,12 @@ class Canvas {
             draggable: true,
             closed: true,
         });
-        this.shapes.rectangle.intersection = new Konva.Line({
+        this.shapes.rectangle.intersection = new Konva.Rect({
             x: this.stage.width() / 2 - 70,
             y: this.stage.height() / 2 + 30,
-            points: [0, 0, 0, 150, -300, 150, -150, 0],
+            // points: [0, 0, 0, 150, -300, 150, -150, 0],
+            width: 200,
+            height: 200,
             stroke: 'black',
             strokeWidth: 2,
             closed: true,
